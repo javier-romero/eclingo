@@ -23,7 +23,8 @@ bot :- ktuple(A,B1,B2), not k(A), true(normal(B1)).
 
 % check true knowledge atoms in the counter model
 ok(A) :- ktuple(A,B1,B2), not k(A).
-ok(A) :- ktuple(A,B1,B2), true(normal(B2)).
+ok(A) :- ktuple(A,B1,B2), true(normal(B2)),
+         conjunction(B2) : faeel.
 bot :- ok(A) : ktuple(A,B1,B2). % this also deduces bot if
                                 % there are no knowledge atoms
 
